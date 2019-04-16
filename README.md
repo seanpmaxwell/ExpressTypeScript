@@ -1,2 +1,2 @@
 # ExpressTypeScript
-Develop and ExpressJS webserver using TypeScript
+Develop an ExpressJS webserver using TypeScript
