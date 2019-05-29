@@ -12,42 +12,43 @@ import { Logger } from '@overnightjs/logger';
 @Controller('api')
 export class ExampleController {
 
-    private readonly logger: Logger;
-
-
-    constructor() {
-        this.logger = new Logger();
-    }
-
 
     @Get(':msg')
-    private getMessage(req: Request, res: Response): void {
-        this.logger.info(req.params.msg);
-        res.status(250).json({msg: req.params.msg});
+    private getMessage(req: Request, res: Response) {
+        Logger.Info(req.params.msg);
+        res.status(200).json({
+            message: req.params.msg,
+        });
     }
 
 
     @Put(':msg')
-    private putMessage(req: Request, res: Response): void {
-        this.logger.info(req.params.msg);
-        res.status(250).json({msg: req.params.msg});
+    private putMessage(req: Request, res: Response) {
+        Logger.Info(req.params.msg);
+        return res.status(400).json({
+            error: req.params.msg,
+        });
     }
 
 
     @Post(':msg')
-    private postMessage(req: Request, res: Response): void {
-        this.logger.info(req.params.msg);
-        res.status(250).json({msg: req.params.msg}); // pick up here
+    private postMessage(req: Request, res: Response) {
+        Logger.Info(req.params.msg);
+        return res.status(400).json({
+            error: req.params.msg,
+        });
     }
 
 
     @Delete(':msg')
-    private delMessage(req: Request, res: Response): void {
+    private delMessage(req: Request, res: Response) {
         try {
             throw new Error(req.params.msg);
         } catch (err) {
-            this.logger.err(err, true);
+            Logger.Err(err, true);
+            return res.status(400).json({
+                error: req.params.msg,
+            });
         }
-        res.status(250).json({msg: req.params.msg});
     }
 }

@@ -5,7 +5,7 @@
   "main": "build/start.js",
   "scripts": {
     "test": "none",
-    "start:express": "nodemon --config \"./util/nodemon.json\"/",
+    "start-dev": "nodemon --config \"./util/nodemon.json\"/",
     "build": "rm -rf ./build && tsc",
     "start": "node build/start.js"
   },

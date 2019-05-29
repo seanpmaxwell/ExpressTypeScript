@@ -13,13 +13,11 @@ import { Logger } from '@overnightjs/logger';
 
 class ExampleServer extends Server {
 
-    private readonly logger: Logger;
     private readonly SERVER_STARTED = 'Example server started on port: ';
 
 
     constructor() {
-        super();
-        this.logger = new Logger();
+        super(true);
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({extended: true}));
         this.setupControllers();
@@ -43,7 +41,7 @@ class ExampleServer extends Server {
             res.send(this.SERVER_STARTED + port);
         });
         this.app.listen(port, () => {
-            this.logger.imp(this.SERVER_STARTED + port);
+            Logger.Imp(this.SERVER_STARTED + port);
         });
     }
 }
