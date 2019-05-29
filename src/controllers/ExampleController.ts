@@ -22,36 +22,32 @@ export class ExampleController {
 
     @Get(':msg')
     private getMessage(req: Request, res: Response): void {
-
         this.logger.info(req.params.msg);
         res.status(250).json({msg: req.params.msg});
     }
+
 
     @Put(':msg')
     private putMessage(req: Request, res: Response): void {
-
         this.logger.info(req.params.msg);
         res.status(250).json({msg: req.params.msg});
     }
+
 
     @Post(':msg')
     private postMessage(req: Request, res: Response): void {
-
         this.logger.info(req.params.msg);
-        res.status(250).json({msg: req.params.msg});
+        res.status(250).json({msg: req.params.msg}); // pick up here
     }
+
 
     @Delete(':msg')
     private delMessage(req: Request, res: Response): void {
-
         try {
-
             throw new Error(req.params.msg);
-
         } catch (err) {
             this.logger.err(err, true);
         }
-
         res.status(250).json({msg: req.params.msg});
     }
 }

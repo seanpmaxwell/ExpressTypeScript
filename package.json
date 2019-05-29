@@ -33,8 +33,8 @@
   },
   "homepage": "https://github.com/seanpmaxwell/ExpressTypeScript#readme",
   "dependencies": {
-    "@overnightjs/core": "^1.4.6",
-    "@overnightjs/logger": "^1.0.4",
+    "@overnightjs/core": "^1.6.4",
+    "@overnightjs/logger": "^1.1.4",
     "body-parser": "^1.18.3",
     "express": "^4.16.4"
   },
